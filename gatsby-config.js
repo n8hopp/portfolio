@@ -6,7 +6,7 @@ module.exports = {
     title: `NHopper Portfolio`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-emotion", "gatsby-plugin-image", {
+  plugins: ["gatsby-plugin-emotion", "gatsby-plugin-sass", "gatsby-plugin-image", {
     resolve: 'gatsby-plugin-manifest',
     options: {
       "icon": "src/images/icon.png"

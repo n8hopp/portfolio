@@ -1,0 +1,60 @@
+// Menu Item Variables
+// The number of items in the menu
+$menu-items: 5;
+// We multiply it by 1% to get the correct % unit
+$width: (100/$menu-items) * 1%;
+
+// Colors
+$background-color: #121212;
+$indicator-color: #e82d00;
+
+// The parent container
+.primary-nav {
+	// Remove the bullet points by default
+	list-style: none;
+	// Center all the things!
+	margin: 50px auto;
+	// The nav will never exceed this width and what our calculated percentages related back to 
+	max-width: 720px;
+	padding: 0;
+	width: 50%;
+  }
+  
+  // The menu items
+  .nav-item {
+	background: #fff;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	// Our current calculation of 5 items will generate 20%
+	width: $width;
+  
+	// The first item in the menu
+	&:first-child {
+	  border-radius: 3px 0 0 3px;
+	}
+  
+	// The last item in the menu
+	&:last-child {
+	  border-radius: 0 3px 3px 0;
+	}
+  
+	// If the menu item is active, give it the same color as the indicator
+	&.is-active a {
+	  color: $indicator-color;
+	}
+  
+	a {
+	  color: $background-color;
+	  display: block;
+	  padding-top: 20px;
+	  padding-bottom: 20px;
+	  text-decoration: none;
+  
+	  &:hover {
+		color: $indicator-color;
+	  }
+	}
+  }
