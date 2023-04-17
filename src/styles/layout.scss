@@ -1,60 +1,207 @@
-// Menu Item Variables
-// The number of items in the menu
-$menu-items: 5;
-// We multiply it by 1% to get the correct % unit
-$width: (100/$menu-items) * 1%;
 
-// Colors
-$background-color: #121212;
-$indicator-color: #e82d00;
 
-// The parent container
-.primary-nav {
-	// Remove the bullet points by default
-	list-style: none;
-	// Center all the things!
-	margin: 50px auto;
-	// The nav will never exceed this width and what our calculated percentages related back to 
-	max-width: 720px;
-	padding: 0;
-	width: 50%;
+@import url(https://fonts.google.com/specimen/Fira+Code:300);
+
+// How many menu items do we have?
+$menu-items: 3;
+
+// Colours
+$background-color: #707070;
+$indicator-color: #0046A5;
+
+// Transition Speed
+$transition-speed: 0.5s;
+
+// Dynamic Variables
+$width: (100/$menu-items) * 1%; // makes each item the right size
+$menu-items-loop-offset: $menu-items - 1; // the number of items in the menu
+
+@keyframes fadeIt {
+	from  { background-color: #707070; }
+	to { background-color: #0046A5; }
   }
-  
-  // The menu items
-  .nav-item {
-	background: #fff;
-	display: block;
-	float: left;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	// Our current calculation of 5 items will generate 20%
-	width: $width;
-  
-	// The first item in the menu
-	&:first-child {
-	  border-radius: 3px 0 0 3px;
-	}
-  
-	// The last item in the menu
-	&:last-child {
-	  border-radius: 0 3px 3px 0;
-	}
-  
-	// If the menu item is active, give it the same color as the indicator
-	&.is-active a {
-	  color: $indicator-color;
-	}
-  
-	a {
-	  color: $background-color;
-	  display: block;
-	  padding-top: 20px;
-	  padding-bottom: 20px;
-	  text-decoration: none;
-  
-	  &:hover {
-		color: $indicator-color;
-	  }
-	}
+// ======================================================
+// Step 1 - Making a Fixed Width Navigation
+// ======================================================
+
+.nav-logo{
+	flex-grow:1;
+}
+
+.nav-box-border {
+	border-style: solid;
+	border-width: 1px;
+	border-color: $background-color;
+	display: flex;
+}
+.PrimaryNav {
+  @extend %cf; // clear the floats
+  flex-grow:1;
+  list-style: none;
+  margin: auto;
+  max-width: 720px; // As all measurements are using % this could be a flexible value.
+  padding: 0;
+  width: 100%;
+}
+
+.Nav-item {
+  background: #fff;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: $width; //dynamic width
+  text-align: center;
+
+  &:first-child {
+    border-radius: 3px 0 0 3px;
   }
+
+  &:last-child {
+    border-radius: 0 3px 3px 0;
+  }
+
+  //&.is-active a {
+	// color: $indicator-color;
+  //}
+
+  a {
+    color: $background-color;
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+
+    //&:hover {
+      //color: $indicator-color;
+    //}
+  }
+}
+
+
+// ======================================================
+// Step 2 - Making the pseudo indicator
+// ======================================================
+
+.with-indicator {
+  position: relative;// the menu is "relative" to the absolute position last-child pseudo elements.
+  z-index: 0;
+
+  .Nav-item {
+    // ======================================================
+    // Step 2.1 - Making the indicator with the pseudo element.
+    // ======================================================
+    &:last-child {
+      &:before, &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        pointer-events: none;
+        transition: left #{$transition-speed} ease;
+      }
+      // Making the top CSS Triangle - learn more: https://css-tricks.com/animation-css-triangles-work/
+      /*&:before {
+        border: 6px solid transparent;
+        border-top-color: $indicator-color;
+        width: 0;
+        height: 0;
+        top: 0;
+        left: ($width/2);
+        margin-left: -3px;
+      } */
+      &:after {
+        //background: $indicator-color;
+        top: 0px;
+        bottom: -3px;
+        left: 0;
+        width: $width;
+        z-index: -1;
+      }
+
+
+    }
+
+  }
+
+  @for $i from 1 through $menu-items-loop-offset {
+    // when the Nav item "is active", make the indicator line up with the navigation item.
+    .Nav-item:nth-child(#{$i}).is-active ~ .Nav-item:last-child:after {
+      left:($width*$i)-$width;
+	  //animation: fadeIt 3s ease;
+    }
+    .Nav-item:nth-child(#{$i}).is-active ~ .Nav-item:last-child:before
+    {
+      left:($width*$i)+($width/2)-$width; // this ensures the triangle lines up to the menu.
+	  animation: fadeIt 3s reverse ease;
+    }
+}
+
+// ======================================================
+// Step 3 - Making it move
+// ======================================================
+
+    // This could be in the same loop as the above but for the tutorial steps it's not
+    @for $i from 1 through $menu-items-loop-offset {
+    // We have to use !important to make the hovers overide if the last:child is the active or hovered
+    .Nav-item:nth-child(#{$i}):hover ~ .Nav-item:last-child:after {
+      left:($width*$i)-$width !important;
+	  animation: fadeIt 3s ease;
+    }
+
+    .Nav-item:nth-child(#{$i}):hover ~ .Nav-item:last-child:before{
+      left:($width*$i)+($width/2)-$width !important;
+	  //animation: fadeIt 3s reverse ease;
+    }
+      
+  }
+    
+    // this could be nested in the original .Nav-item
+    .Nav-item {
+        &:last-child {
+          // make sure the last-child talks to itself
+          &:hover, &.is-active {
+            &:before {
+             // we have to use important because the sibling selctor is more specific.
+              left: (100%-$width)+($width/2) !important;
+            }
+            &:after{
+              left: 100%-$width !important;
+            }
+          }        
+        }
+    }
+
+}
+
+
+// ======================================================
+// The usual Global resets
+// ======================================================
+
+*, *:before, *:after {
+  box-sizing: border-box; // learn more: https://css-tricks.com/box-sizing/
+}
+
+// Extending the https://css-tricks.com/micro-clearfix/
+%cf:before,
+%cf:after {
+    content: " ";
+    display: table;
+}
+%cf:after {
+    clear: both;
+}
+
+// Presentation Styling
+
+html {
+
+  font-family: 'Fira Code', sans-serif;
+  font-weight: 400;
+}
+
+.toggle {
+    color: #fff;
+    font-family: sans-serif;
+    text-align: center;
+}
