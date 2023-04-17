@@ -6,7 +6,8 @@ const IndexPage = () => {
   return (
     <main>
       <Layout pageTitle="Home Page">
-        <p>I'm making this by following the Gatsby Tutorial.</p>
+        <p>Please note that this site is in development.</p>
+        <p><strong>If you're a recruiter,</strong> this... isn't done yet :) But feel free to check out this cool navbar I'm working on with pure CSS animations and no JS right now above!</p>
       </Layout>
     </main>
   )
