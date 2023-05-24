@@ -5,7 +5,10 @@ import Layout from '../components/layout'
 const IndexPage = () => {
   return (
     <main>
-      <Layout pageTitle="Home Page">
+      <Layout pageTitle="Projects" 
+              projectsClass="Nav-item is-active" 
+              experienceClass="Nav-item"
+              contactClass="Nav-item">
         <p>Please note that this site is in development.</p>
         <p><strong>If you're a recruiter,</strong> this... isn't done yet :) But feel free to check out this cool navbar I'm working on with pure CSS animations and no JS right now above!</p>
       </Layout>

@@ -26,6 +26,8 @@ $menu-items-loop-offset: $menu-items - 1; // the number of items in the menu
 
 .nav-logo{
 	flex-grow:1;
+  display:flex;
+  align-items: center;
 }
 
 .nav-box-border {
@@ -73,7 +75,7 @@ $menu-items-loop-offset: $menu-items - 1; // the number of items in the menu
     text-decoration: none;
 
     &:hover {
-      color: $indicator-color;
+      color: #707090;
     }
   }
 }
@@ -158,12 +160,20 @@ $menu-items-loop-offset: $menu-items - 1; // the number of items in the menu
   .Nav-item {
       &:last-child {
         // make sure the last-child talks to itself
-        &:hover, &.is-active {
+        &:hover {
+            &:not(.is-active)  {
+              &:after{
+                left: 100%-$width !important;
+                background-color: $background-color !important;
+              }
+            }
+        }
+        &.is-active {
           &:after{
-            left: 100%-$width !important;
-            background-color: $background-color !important;
+            left: 100%-$width;
+            background-color: $indicator-color !important;
           }
-        }        
+        }
       }
   }
 
