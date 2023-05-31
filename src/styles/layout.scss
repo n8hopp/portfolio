@@ -27,13 +27,35 @@ $menu-items-loop-offset: $menu-items - 1; // the number of items in the menu
 .nav-logo{
 	flex-grow:1;
   display:flex;
-  align-items: center;
+  align-items:end;
 }
 
+.subnav {
+  align-items:center;
+}
+
+.navback {
+  background: #fff;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0 1%;
+  text-align: center;
+
+  a {
+    color: $background-color;
+    display: block;
+    font-weight: normal;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+
+    &:hover {
+      color: $indicator-color;
+    }
+  }
+}
 .nav-box-border {
-	border-style: solid;
-	border-width: 1px;
-	border-color: $background-color;
 	display: flex;
 }
 .PrimaryNav {
