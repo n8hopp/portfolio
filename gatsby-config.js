@@ -1,6 +1,11 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `NHopper Portfolio`,
@@ -25,5 +30,14 @@ module.exports = {
       "path": "./src/pages/"
     },
     __key: "pages"
-  }]
+  },   {
+    resolve: 'gatsby-source-sanity',
+    options: {
+      projectId: '2mtzvb28',
+      dataset: 'production',
+      watchMode: true, // Updates your pages when you create or update documents
+      token: process.env.SANITY_API_KEY,
+    },
+  }
+  ]
 };
