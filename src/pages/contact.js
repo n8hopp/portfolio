@@ -9,7 +9,14 @@ const ContactPage = () => {
               projectsClass="Nav-item" 
               experienceClass="Nav-item"
               contactClass="Nav-item is-active">
-      		<p>Hi there! I'm the proud creator of this site, which I built with Gatsby.</p>
+      		<p>You can contact me at: </p>
+          <ul>
+            <li>Email: <a href="mailto:nathaniel_hopper@outlook.com">nathaniel_hopper@outlook.com</a></li>
+            <li>
+              <a href="https://www.linkedin.com/in/nathaniel-hopper-436057259/">Linkedin</a>
+            </li>
+            
+          </ul>
     	</Layout>
     </main>
   )
