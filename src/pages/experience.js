@@ -1,8 +1,32 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 
-const ExperiencePage = () => {
+export const query = graphql`
+  query ExperiencePageQuery {
+    experiences: allSanityExperience(
+      limit: 6
+      filter: { slug: { current: { ne: null } } })
+      {
+          nodes {
+            id
+            picture {
+              asset{
+                gatsbyImageData
+              }
+            }
+            name
+            slug{
+              current
+            }
+          }
+      }
+  }
+
+`
+
+const ExperiencePage = ({data}) => {
+  const experiences = data.experiences.nodes
   return (
     <main>
       <Layout pageTitle="Experience" 
@@ -11,6 +35,15 @@ const ExperiencePage = () => {
               contactClass="Nav-item">
       		<p>Hi there! I'm the proud creator of this site, which I built with Gatsby.</p>
     	</Layout>
+      <div>
+        <ul className="experiencelist">
+          {experiences.map(experience => (
+            <li className="book-item" key={experience.name}>
+              <Link to={`/experience/${experience.slug.current}`}>{experience.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </main>
   )
 }

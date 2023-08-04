@@ -21,6 +21,22 @@ exports.createPages = async ({ graphql, actions }) => {
 			}
 		  }
 		}
+		allSanityExperience(filter: { slug: { current: { ne: null } } }) {
+			edges {
+			  node {
+				name
+				_rawDescription
+				slug {
+				  current
+				}
+				picture {
+				  asset {
+					url
+				  }
+				}
+			  }
+			}
+		  }
 	  }
 	`)
   
@@ -38,4 +54,16 @@ exports.createPages = async ({ graphql, actions }) => {
 		context: { slug: edge.node.slug.current },
 	  })
 	})
+
+	const experiences = result.data.allSanityExperience.edges || []
+	experiences.forEach((edge, index) => {
+		const path = `/experience/${edge.node.slug.current}`
+	
+		createPage({
+		  path,
+		  component: require.resolve("./src/templates/experience.js"),
+		  context: { slug: edge.node.slug.current },
+		})
+	  })
+
   }
