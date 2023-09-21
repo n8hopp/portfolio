@@ -1,6 +1,7 @@
 import * as React from "react"
 import Layout from '../components/layout'
 import {graphql, Link} from 'gatsby'
+import {GatsbyImage} from 'gatsby-plugin-image'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -35,13 +36,16 @@ const IndexPage = ({data}) => {
               experienceClass="Nav-item"
               contactClass="Nav-item">
         <p>Please note that this site is in development.</p>
-        <p><strong>If you're a recruiter,</strong> this... isn't done yet :) I'm currently working on this dynamic tree of documents below.</p>
+        <p><b>If you're a recruiter,</b> this... isn't done yet :) I'm currently working on this dynamic tree of documents below.</p>
       </Layout>
       <div>
         <ul className="projectlist">
           {projects.map(project => (
-            <li className="book-item" key={project.name}>
-              <Link to={`/project/${project.slug.current}`}>{project.name}</Link>
+            <li className="proj-item" key={project.name}>
+              <div>
+                <Link to={`/project/${project.slug.current}`}>{project.name}</Link>
+                <GatsbyImage image={project.picture.asset.gatsbyImageData}></GatsbyImage>
+              </div>
             </li>
           ))}
         </ul>
