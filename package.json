@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.10.5",
     "@mdx-js/react": "^2.2.1",
     "@portabletext/react": "^3.0.2",
+    "framer-motion": "^10.16.4",
     "gatsby": "^5.8.0",
     "gatsby-plugin-emotion": "^8.3.0",
     "gatsby-plugin-image": "^3.10.0",

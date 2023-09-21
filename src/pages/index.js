@@ -2,9 +2,10 @@ import * as React from "react"
 import Layout from '../components/layout'
 import {graphql, Link} from 'gatsby'
 import {GatsbyImage} from 'gatsby-plugin-image'
+import Projects from "../components/projects"
 
 export const query = graphql`
-  query IndexPageQuery {
+  query ProjectCardsQuery {
     projects: allSanityProject(
       limit: 6
       filter: { slug: { current: { ne: null } } })
@@ -44,12 +45,15 @@ const IndexPage = ({data}) => {
             <li className="proj-item" key={project.name}>
               <div>
                 <Link to={`/project/${project.slug.current}`}>{project.name}</Link>
-                <GatsbyImage image={project.picture.asset.gatsbyImageData}></GatsbyImage>
+                
+                { /* Boolean logic for "only show image if project.picture != null */}
+                {project.picture && <GatsbyImage image={project.picture.asset.gatsbyImageData}></GatsbyImage>}
               </div>
             </li>
           ))}
         </ul>
       </div>
+      <Projects projects={projects}/>
     </main>
   )
 }

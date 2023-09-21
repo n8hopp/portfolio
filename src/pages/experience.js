@@ -33,7 +33,7 @@ const ExperiencePage = ({data}) => {
               projectsClass="Nav-item" 
               experienceClass="Nav-item is-active"
               contactClass="Nav-item">
-      		<p>Hi there! I'm the proud creator of this site, which I built with Gatsby.</p>
+      		<p>Here's some of my work experience:</p>
     	</Layout>
       <div>
         <ul className="experiencelist">
