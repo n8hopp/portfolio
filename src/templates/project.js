@@ -15,7 +15,7 @@ const Project = ({ data: { project } }) => (
       <h1 className="navback"><Link to="/">&lt;</Link></h1>
       <h2>{project.name}</h2>
     </span>
-    <GatsbyImage image={project.picture.asset.gatsbyImageData} />
+    {project.picture && <GatsbyImage image={project.picture.asset.gatsbyImageData} />}
     <PortableText value={project.text}>Hi</PortableText>
   </article>
 )

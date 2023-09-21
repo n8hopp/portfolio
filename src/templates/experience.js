@@ -5,6 +5,7 @@ import {PortableText} from '@portabletext/react'
 
 import Layout from '../components/layout'
 
+
 const Experience = ({ data: { experience } }) => (
   <article>
     <Layout pageTitle="Experience" 
@@ -15,7 +16,7 @@ const Experience = ({ data: { experience } }) => (
       <h1 className="navback"><Link to="/experience">&lt;</Link></h1>
       <h2>{experience.name}</h2>
     </span>
-    {experience.picture && <GatsbyImage image={experience.picture.asset.gatsbyImageData} />}
+    {experience.picture && <GatsbyImage image={experience.picture.asset.gatsbyImageData}/>}
     <PortableText value={experience.text}>Hi</PortableText>
   </article>
 )
