@@ -13,9 +13,7 @@ export const query = graphql`
           nodes {
             id
             picture {
-              asset{
-                gatsbyImageData
-              }
+              ...ImageWithPreview
             }
             name
             slug{
@@ -37,22 +35,22 @@ const IndexPage = ({data}) => {
               experienceClass="Nav-item"
               contactClass="Nav-item">
         <p>Please note that this site is in development.</p>
-        <p><b>If you're a recruiter,</b> this... isn't done yet :) I'm currently working on this dynamic tree of documents below.</p>
+        <p><b>If you're a recruiter,</b> this... isn't done yet :) I'm currently working on this directory of projects below.</p>
       </Layout>
-      <div>
+      { /*<div>
         <ul className="projectlist">
           {projects.map(project => (
             <li className="proj-item" key={project.name}>
               <div>
                 <Link to={`/project/${project.slug.current}`}>{project.name}</Link>
                 
-                { /* Boolean logic for "only show image if project.picture != null */}
+                {  Boolean logic for "only show image if project.picture != null }
                 {project.picture && <GatsbyImage image={project.picture.asset.gatsbyImageData}></GatsbyImage>}
               </div>
             </li>
           ))}
         </ul>
-      </div>
+          </div> */ }
       <Projects projects={projects}/>
     </main>
   )

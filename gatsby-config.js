@@ -38,6 +38,13 @@ module.exports = {
       watchMode: true, // Updates your pages when you create or update documents
       token: process.env.SANITY_API_KEY,
     },
+  },  {
+    resolve: "gatsby-plugin-sanity-image",
+    options: {
+      // Sanity project info (required)
+      projectId: '2mtzvb28',
+      dataset: "production",
+    },
   }
   ]
 };
