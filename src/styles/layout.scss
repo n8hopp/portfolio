@@ -23,9 +23,18 @@ $menu-items-loop-offset: $menu-items - 1; // the number of items in the menu
 // ======================================================
 
 .nav-logo{
-	flex-grow:1;
+	flex-basis:50%;
   display:flex;
-  align-items:end;
+  align-items:center;
+}
+
+@media (max-width: 700px) {
+  #logoImg { width: 80%; };
+}
+.nav-logo-img {
+  margin: 0;
+  width: 50%;
+  height: auto;
 }
 
 .subnav {
@@ -55,13 +64,16 @@ $menu-items-loop-offset: $menu-items - 1; // the number of items in the menu
 }
 .nav-box-border {
 	display: flex;
+  justify-content: center;
+  padding: 1em;
 }
 .PrimaryNav {
   @extend %cf; // clear the floats
-  flex-grow:1;
+  flex-basis:50%;
   list-style: none;
   margin: auto;
   max-width: 720px; // As all measurements are using % this could be a flexible value.
+  font-size: min(3vw, 16px);
   padding: 0;
   width: 100%;
 }
@@ -229,4 +241,12 @@ html {
     color: #fff;
     font-family: sans-serif;
     text-align: center;
+}
+
+.main-body {
+  padding: 1em;
+}
+
+.experiencelist {
+    list-style: inside;
 }

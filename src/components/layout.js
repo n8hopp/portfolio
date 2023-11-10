@@ -7,7 +7,7 @@ const Layout = ({ pageTitle, projectsClass, experienceClass, contactClass, child
   return (
     <div>
       <nav class="nav-box-border">
-        <div class="nav-logo"><img width="50%" src={natelogo} alt="logo"></img></div>
+        <div class="nav-logo"><img class="nav-logo-img" id="logoImg" src={natelogo} alt="logo"></img></div>
         <ul class="PrimaryNav with-indicator">
             <li class={projectsClass}>
               <Link to="/">projects</Link>
@@ -20,10 +20,13 @@ const Layout = ({ pageTitle, projectsClass, experienceClass, contactClass, child
             </li>
           </ul>
       </nav><br></br>
-      <main>
+      <main class="sm:px-16 px-6 max-w-7xl mx-auto relative font-fira z-0">
         <h1>{pageTitle}</h1>
         {children}
       </main>
+      <footer class="bg-about py-5 mx-auto relative font-fira z-0 text-center">
+        © 2023 Nate Hopper. Projects card code & many CSS elements borrowed from github/shaqdeff
+      </footer>
     </div>
   )
 }

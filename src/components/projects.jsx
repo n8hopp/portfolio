@@ -13,6 +13,7 @@ const ProjectCard = ({
 	id,
 	name,
 	description,
+	minidescription,
 	picture,
 	repo,
 	demo,
@@ -65,14 +66,14 @@ const ProjectCard = ({
   
 			  <h2
 				className="font-bold sm:text-[32px] text-[24px] 
-				text-timberWolf uppercase sm:mt-0 -mt-[1rem]">
+				text-timberWolf font-fira sm:mt-0 -mt-[1rem]">
 				{name}
 			  </h2>
 			  <p
 				className="text-silver sm:text-[14px] text-[12px] 
 				max-w-3xl sm:leading-[24px] leading-[18px]
 				font-fira tracking-[1px]">
-				{description}
+				{minidescription}
 			  </p>
 			  <button
 				className="live-demo flex justify-center
@@ -99,13 +100,13 @@ const Projects = (props) => {
 	return (
 	  <div className="-mt-[6rem]">
 		<motion.div variants={textVariant()}>
-		  <h2 className={`${styles.sectionHeadText}`}>Projects</h2>
+		  <h2 className={`${styles.sectionHeadText}`}>projects</h2>
 		</motion.div>
   
 		<div className="w-full flex">
 		  <motion.p
 			variants={fadeIn('', '', 0.1, 1)}
-			className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
+			className="mt-4 text-taupe font-fira text-[18px] max-w-3xl leading-[30px]">
 			Some of my various projects. 
 			These projects effectively demonstrate my comfortability and experience in full-stack development and leadership.
 		  </motion.p>

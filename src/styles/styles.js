@@ -23,9 +23,9 @@ const styles = {
     'text-eerieBlack font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px]',
 
   sectionHeadText:
-    'text-eerieBlack font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-fira',
+    'text-coolGrey font-regular md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-fira',
   sectionHeadTextLight:
-    'text-timberWolf font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-poppins',
+    'text-timberWolf font-medium md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-poppins',
   sectionSubText:
     'sm:text-[18px] text-[16px] text-taupe uppercase tracking-wider font-semibold font-poppins',
   sectionSubTextLight:

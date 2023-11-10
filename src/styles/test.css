@@ -1254,6 +1254,9 @@ video {
   font-weight: 600;
 }
 
+.font-header {
+  font-weight: 300;
+}
 .uppercase{
   text-transform: uppercase;
 }
@@ -1294,6 +1297,11 @@ video {
 .text-eerieBlack{
   --tw-text-opacity: 1;
   color: rgb(31 31 31 / var(--tw-text-opacity));
+}
+
+.text-coolGray{
+  --tw-text-opacity: 1;
+  color: rgb(51 51 51 / var(--tw-text-opacity));
 }
 
 .text-french{
@@ -1883,7 +1891,7 @@ video {
   }
 
   .lg\:origin-shift{
-    transform: translateY(-10%)
+    transform-origin: 50% 50%
   }
 
   .lg\:rotate-\[-90deg\]{

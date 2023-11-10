@@ -34,16 +34,17 @@ const ExperiencePage = ({data}) => {
               experienceClass="Nav-item is-active"
               contactClass="Nav-item">
       		<p>Here's some of my work experience:</p>
+          <div>
+            <ul className="experiencelist">
+              {experiences.map(experience => (
+                <li className="book-item" key={experience.name}>
+                  <Link to={`/experience/${experience.slug.current}`}>{experience.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
     	</Layout>
-      <div>
-        <ul className="experiencelist">
-          {experiences.map(experience => (
-            <li className="book-item" key={experience.name}>
-              <Link to={`/experience/${experience.slug.current}`}>{experience.name}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      
     </main>
   )
 }

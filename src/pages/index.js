@@ -16,9 +16,11 @@ export const query = graphql`
               ...ImageWithPreview
             }
             name
+            minidescription
             slug{
               current
             }
+            
           }
       }
   }
@@ -36,6 +38,7 @@ const IndexPage = ({data}) => {
               contactClass="Nav-item">
         <p>Please note that this site is in development.</p>
         <p><b>If you're a recruiter,</b> this... isn't done yet :) I'm currently working on this directory of projects below.</p>
+        <Projects projects={projects}/>
       </Layout>
       { /*<div>
         <ul className="projectlist">
@@ -51,7 +54,7 @@ const IndexPage = ({data}) => {
           ))}
         </ul>
           </div> */ }
-      <Projects projects={projects}/>
+      
     </main>
   )
 }
