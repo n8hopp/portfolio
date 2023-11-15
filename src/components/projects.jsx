@@ -6,14 +6,15 @@ import { SectionWrapper } from '../hoc';
 import { styles } from '../styles/styles';
 import { github, pineapple, pineappleHover } from '../assets';
 import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
-import SanImage from './sanimage'
-import '../styles/test.css'
+import SanImage from './sanimage';
+import '../styles/test.css';
 
 const ProjectCard = ({
 	id,
 	name,
 	description,
 	minidescription,
+	slug,
 	picture,
 	repo,
 	demo,
@@ -38,9 +39,10 @@ const ProjectCard = ({
 		{active !== id ? (
 		  <div className="flex items-center justify-center pt-12">
 			<h3
-			  className="font-extrabold font-fira lg:origin-shift w-[300px] h-[30px] sm:text-[27px] text-[18px] text-timberWolf tracking-[1px]
-		  			absolute z-0 lg:bottom-[7rem]
-		  			leading-none z-20 lg:rotate-[-90deg] ">
+			  className="font-extrabold font-fira lg:origin-shift flex items-center
+			  		lg:origin-[0,0] w-[300px] h-[55px] sm:text-[27px] text-[18px] 
+					text-timberWolf tracking-[1px] absolute z-0 lg:bottom-[7rem]
+		  			leading-none z-20 lg:rotate-[-90deg] lg:transform-left-[5%] ">
 			  {name}
 			</h3>
 			 
@@ -50,7 +52,7 @@ const ProjectCard = ({
 			<div
 			  className="absolute bottom-0 p-8 justify-start w-full 
 			  flex-col bg-[rgba(122,122,122,0.5)] rounded-b-[24px] z-20">
-			  <div className="absolute inset-0 flex justify-end m-3">
+			  {repo && <div className="absolute inset-0 flex justify-end m-3">
 				<div
 				  onClick={() => window.open(repo, '_blank')}
 				  className="bg-night sm:w-11 sm:h-11 w-10 h-10 rounded-full 
@@ -62,10 +64,10 @@ const ProjectCard = ({
 					className="w-4/5 h-4/5 object-contain"
 				  />
 				</div>
-			  </div>
+			  </div>}
   
 			  <h2
-				className="font-bold sm:text-[32px] text-[24px] 
+				className="font-bold sm:text-[3hw] lg:text-[30px] 
 				text-timberWolf font-fira sm:mt-0 -mt-[1rem]">
 				{name}
 			  </h2>
@@ -84,7 +86,7 @@ const ProjectCard = ({
 				sm:mt-[22px] mt-[16px] hover:bg-battleGray 
 				hover:text-eerieBlack text-center transition duration-[0.2s] 
 				ease-in-out"
-				onClick={() => window.open(demo, '_blank')}>
+				onClick={() => window.open(`/project/${slug.current}`, '_self')}>
 				More Info
 			  </button>
 			</div>

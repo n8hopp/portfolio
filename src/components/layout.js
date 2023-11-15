@@ -24,7 +24,7 @@ const Layout = ({ pageTitle, projectsClass, experienceClass, contactClass, child
         <h1>{pageTitle}</h1>
         {children}
       </main>
-      <footer class="bg-about py-5 mx-auto relative font-fira z-0 text-center">
+      <footer class="bg-about py-5 px-12 mx-auto relative font-fira z-0 text-center">
         © 2023 Nate Hopper. Projects card code & many CSS elements borrowed from github/shaqdeff
       </footer>
     </div>
