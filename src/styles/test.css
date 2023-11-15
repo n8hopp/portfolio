@@ -1631,8 +1631,28 @@ video {
   color: rgb(153 153 161 / var(--tw-text-opacity));
 }
 
+.sm\:text-padding-\[5\%\]{
+  padding-left: 5%;
+}
+
+@media (max-width: 450px){
+  .xxs\:justify-content{
+    justify-content:center;
+    text-align:center;
+    width: 75%;
+  }
+
+  .xxs\:min-height-\[100vh\]{
+
+    min-height: 100vh;
+  }
+}
 @media (min-width: 450px){
 
+  .xs\:min-height-\[70vh\]{
+
+    min-height: 70vh;
+  }
   .xs\:bottom-10{
     bottom: 2.5rem;
   }
@@ -1863,6 +1883,8 @@ video {
   .sm\:opacity-\[0\.9\]{
     opacity: 0.9;
   }
+
+
 }
 
 @media (min-width: 768px){
@@ -1937,7 +1959,7 @@ video {
   .lg\:text-\[24px\]{
     font-size: 24px;
   }
-  
+
   .lg\:text-\[30px\]{
     font-size: 30px;
   }

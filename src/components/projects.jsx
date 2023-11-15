@@ -40,7 +40,7 @@ const ProjectCard = ({
 		  <div className="flex items-center justify-center pt-12">
 			<h3
 			  className="font-extrabold font-fira lg:origin-shift flex items-center
-			  		lg:origin-[0,0] w-[300px] h-[55px] sm:text-[27px] text-[18px] 
+			  		lg:origin-[0,0] w-[300px] h-[55px] sm:text-[27px] xxs:justify-content text-[18px] 
 					text-timberWolf tracking-[1px] absolute z-0 lg:bottom-[7rem]
 		  			leading-none z-20 lg:rotate-[-90deg] lg:transform-left-[5%] ">
 			  {name}
@@ -120,7 +120,7 @@ const Projects = (props) => {
 		  whileInView="show"
 		  viewport={{ once: false, amount: 0.25 }}
 		  className={`${styles.innerWidth} mx-auto flex flex-col`}>
-		  <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
+		  <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] xxs:min-height-[100vh] gap-5">
 			{props.projects.map((project, index) => (
 			  <ProjectCard
 				key={project.id}
