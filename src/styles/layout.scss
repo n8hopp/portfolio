@@ -73,7 +73,7 @@ $menu-items-loop-offset: $menu-items - 1; // the number of items in the menu
   list-style: none;
   margin: auto;
   max-width: 720px; // As all measurements are using % this could be a flexible value.
-  font-size: min(3vw, 16px);
+  font-size: min(2.5vw, 16px);
   padding: 0;
   width: 100%;
 }

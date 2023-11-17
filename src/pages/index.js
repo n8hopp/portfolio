@@ -36,8 +36,7 @@ const IndexPage = ({data}) => {
               projectsClass="Nav-item is-active" 
               experienceClass="Nav-item"
               contactClass="Nav-item">
-        <p>Please note that this site is in development.</p>
-        <p><b>If you're a recruiter,</b> this... isn't done yet :) I'm currently working on this directory of projects below.</p>
+        <p><b>If you're a recruiter,</b> this isn't fully done yet :) I'm currently working on the experiences page.</p>
         <Projects projects={projects}/>
       </Layout>
       { /*<div>

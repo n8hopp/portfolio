@@ -1962,6 +1962,7 @@ video {
 
   .lg\:text-\[30px\]{
     font-size: 30px;
+    overflow-wrap: break-word;
   }
 
   .lg\:text-\[80px\]{
